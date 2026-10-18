@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok Callback</title>
+<style>
+  body{font-family:Arial,sans-serif;background:#0e2231;color:#f2f7fa;
+       display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:20px;box-sizing:border-box}
+  .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+        border-radius:18px;padding:28px;max-width:640px;width:100%;text-align:center}
+  h2{margin:0 0 8px;font-size:24px}
+  p{color:#a3bccb;line-height:1.5;font-size:14px}
+  textarea{width:100%;height:110px;background:#123a4d;color:#ffd7c4;border:1px solid rgba(255,107,53,.4);
+           border-radius:12px;padding:12px;font-family:monospace;font-size:15px;box-sizing:border-box;margin:14px 0}
+  button{background:#ff6b35;color:#fff;border:none;border-radius:999px;padding:12px 28px;
+         font-size:15px;font-weight:700;cursor:pointer}
+  .ok{color:#5fd39a;font-weight:700}
+</style>
+</head>
+<body>
+<div class="card">
+  <h2>✅ Erfolgreich autorisiert!</h2>
+  <p class="ok">Đăng nhập TikTok thành công!</p>
+  <p><b>BƯỚC CUỐI:</b> Nhấn nút dưới đây để copy mã, rồi dán (Ctrl+V) về cuộc trò chuyện với trợ lý AI của bạn.</p>
+  <textarea id="code" readonly>KHÔNG TÌM THẤY MÃ — hãy copy nguyên dòng địa chỉ trên trình duyệt</textarea>
+  <br>
+  <button onclick="var t=document.getElementById('code');t.select();document.execCommand('copy');this.textContent='✅ Đã copy!';">📋 Copy mã code</button>
+</div>
+<script>
+  var p = new URLSearchParams(location.search);
+  var code = p.get('code');
+  if (code) { document.getElementById('code').value = code; }
+</script>
+</body>
+</html>
